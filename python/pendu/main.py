@@ -93,12 +93,12 @@ def main():
     global erreurs, partiesGagnées, partiesPerdues
     system("clear")
     print("Bienvenue au jeu de pendu")
-    running = True
-    a = 0
-    while running:
+    programme = True
+    partie = 0
+    while programme:
         choix_mot = r.choice(mots)
-        mot_masqué = ["_ "] * len(choix_mot)
-        while a == 0:
+        mot_masqué = ["_"] * len(choix_mot)
+        while partie == 0:
             afficherPendu(erreurs)
             print(mot_masqué)
             entrée_util = input("Votre devinette: ")
@@ -108,6 +108,10 @@ def main():
             elif not entrée_util.isalpha():
                 system("clear")
                 print("Votre entrée n'est pas une lettre de l'alphabet")
+            elif entrée_util in listeBonneRéponses or entrée_util in listeErreurs:
+                system("clear")
+                print("Vous avez déjà deviné cette lettre")
+                continue
             else:
                 if entrée_util in choix_mot:
                     for i in range(len(choix_mot)):
@@ -117,15 +121,12 @@ def main():
                         listeBonneRéponses.append(entrée_util)
                         system("clear")
                         print("Bonne réponse!")
-                    else:
-                        system("clear")
-                        print("Vous avez déja deviné ceci")
 
-                    if "_ " not in mot_masqué:
+                    if "_" not in mot_masqué:
                         partiesGagnées += 1
                         print("Tu as gagné! :D")
                         bulletin()
-                        a += 1
+                        partie += 1
                 else:
                     erreurs += 1
                     if entrée_util not in listeErreurs:
@@ -133,9 +134,9 @@ def main():
                     system("clear")
                     print(f"Mauvaise réponse! Il vous reste {6 - erreurs} vies")
                     if erreurs == 6:
-                        print("Tu as perdu! :(")
+                        print(f"Tu as perdu! :( Le mot était: {choix_mot}")
                         bulletin()
-                        a += 1
+                        partie += 1
         while True:
             match input("Rejouer? ([O]ui/[N]on): ").strip().lower():
                 case "o" | "oui":
@@ -144,10 +145,10 @@ def main():
                     listeErreurs.clear()
                     erreurs = 0
                     print("Rejouer")
-                    a = 0
+                    partie = 0
                     break
                 case "n" | "non":
-                    running = False
+                    programme = False
                     break
                 case _:
                     system("clear")
