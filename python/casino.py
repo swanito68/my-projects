@@ -1,4 +1,4 @@
-from os import system
+import os
 from time import sleep
 import random
 
@@ -8,7 +8,7 @@ money = random.randint(20, 500)
 
 def shuffle():
     global money
-    system("clear")
+    os.system("cls" if os.name == "nt" else "clear")
     result = [random.choice(symbols), random.choice(symbols), random.choice(symbols)]
     print("--- RESULT ---")
     sleep(3)
@@ -32,7 +32,7 @@ def shuffle():
     elif result.count("🔔") == 2:
         print("Winner! You won 59.99€")
         money += 59.99
-    elif result.count("") == 3:
+    elif result.count("🍋") == 3:
         print("Winner! You won 39.99€")
         money += 39.99
     elif result.count("🍉") == 3:
@@ -44,7 +44,7 @@ def shuffle():
 
 def main():
     global money
-    system("clear")
+    os.system("cls" if os.name == "nt" else "clear")
     print("Welcome to the casino")
     while True:
         print("Game price: 7.99€")
