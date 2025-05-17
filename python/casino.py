@@ -10,10 +10,10 @@ def shuffle():
     global money
     os.system("cls" if os.name == "nt" else "clear")
     result = [random.choice(symbols), random.choice(symbols), random.choice(symbols)]
-    print("--- RESULT ---")
+    print("----- RESULT -----")
     sleep(3)
-    print(f"| {result[0]} | {result[1]} | {result[2]} |")
-    print("--------------")
+    print(f" | {result[0]} | {result[1]} | {result[2]} | ")
+    print("------------------")
     if result.count("7") == 3:
         print("Grand winner! You won 9999.99€!")
         money += 9999.99
