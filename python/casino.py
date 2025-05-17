@@ -48,7 +48,7 @@ def main():
     print("Welcome to the casino")
     while True:
         print("Game price: 7.99€")
-        choice = input("P to play, Q to quit: ").strip().lower()
+        choice = input("P to play, Q to quit, S to show balance: ").strip().lower()
         if money > 7.99:
             if choice == "p":
                 money = money - 7.99
@@ -56,6 +56,8 @@ def main():
             elif choice == "q":
                 print("Goodbye")
                 break
+            elif choice == "s":
+                print(f"Balance: {money:.2f}€")
             else:
                 print("Invalid input")
         else:
