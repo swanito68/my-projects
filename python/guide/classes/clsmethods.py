@@ -24,8 +24,11 @@ class Student:
         return f"Number of students: {cls.count}"
 
     @classmethod
-    def get_total_gpa(cls):
-        return f"Total GPA: {cls.total_gpa}"
+    def get_average_gpa(cls):
+        if cls.count == 0:
+            return False
+        else:
+            return f"Average GPA: {cls.total_gpa / cls.count}"
 
 
 # Let's make some objects:
@@ -38,5 +41,5 @@ print(
     student2,
     student3,
     Student.get_count(),  # To invoke a class method, you put the class name and then the method name
-    Student.get_total_gpa(),
+    Student.get_average_gpa(),
 )
