@@ -40,12 +40,13 @@ def main():
                     a = 0
                     break
                 case "n":
-                    print("Goodbye")
+                    print("Quitting program")
                     running = False
                     break
                 case _:
                     system("clear")
                     print("Invalid input")
+    print("bai")
 
 
 if __name__ == "__main__":
