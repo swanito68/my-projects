@@ -21,3 +21,23 @@ def subtract(initial, *nums):
         total += num
     initial -= total
     return initial
+
+
+def multiply(*nums):
+    product = 0
+    for num in nums:
+        product *= num
+    return product
+
+
+def R_divide(initial, *nums):
+    total = sum(nums)
+    if total == 0:
+        raise ValueError("Cannot divide by 0")
+    return initial / total
+
+
+def S_divide(initial, *nums):
+    for num in nums:
+        initial /= num
+    return initial
