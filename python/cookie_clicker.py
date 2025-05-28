@@ -17,6 +17,9 @@ upgrade_store = {
     1: "Autoclicker (1 cookie per 2 seconds): $15",
     2: "Grandma (3 cookies per second): $50",
     3: "Super Autoclicker (10 cookies per second): $300",
+    4: "+10 Cookies per click: $100",
+    5: "Cookie Factory (50 cookies per second): $1.5k",
+    6: "+50 Cookies per click: $400",
 }
 
 actual_upgrades = {
@@ -28,11 +31,11 @@ actual_upgrades = {
 def upgrade_shop():
     global cookies
     clear()
-    print("===== UPGRADE STORE =====")
-    for value in upgrade_store.values():
-        print(value)
-    print("=========================")
     while True:
+        print("===== UPGRADE STORE =====")
+        for key, value in upgrade_store.items():
+            print(f"{key}: {value:10}")
+        print("=========================")
         choice = input("Choose an upgrade (or press Enter to exit): ").strip()
         if choice == "":
             break
