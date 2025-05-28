@@ -18,8 +18,8 @@ upgrade_store = {
     2: "Grandma (3 cookies per second): $50",
     3: "Super Autoclicker (10 cookies per second): $300",
     4: "+10 Cookies per click: $100",
-    5: "Cookie Factory (50 cookies per second): $1.5k",
-    6: "+50 Cookies per click: $400",
+    5: "Cookie Factory (75 cookies per second): $2k",
+    6: "+50 Cookies per click: $800",
 }
 
 actual_upgrades = {
@@ -55,6 +55,18 @@ def upgrade_shop():
             clear()
             actual_upgrades["autoclicks"] += 10
             cookies -= 300
+        elif choice == "4" and cookies >= 100:
+            clear()
+            actual_upgrades["click_power"] += 10
+            cookies -= 100
+        elif choice == "5" and cookies >= 2000:
+            clear()
+            actual_upgrades["autoclicks"] += 75
+            cookies -= 2000
+        elif choice == "6" and cookies >= 800:
+            clear()
+            actual_upgrades["click_power"] += 50
+            cookies -= 800
         else:
             clear()
             print("Invalid choice")
