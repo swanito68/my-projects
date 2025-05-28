@@ -122,11 +122,11 @@ def main():
         print("Python cookie clicker")
         print(f"You have {cookies:.2f} cookies")
         print("Options:")
-        print("Enter => Click cookie")
-        print("1     => Visit shop")
-        print("2     => View cookie data")
-        print("3     => Quit")
-        choice = input("> ").strip()
+        print("Enter -> Click cookie")
+        print("1     -> Visit shop")
+        print("2     -> View cookie data")
+        print("3     -> Quit")
+        choice = input("==> ").strip()
         if not bool(choice):
             clear()
             cookies += actual_upgrades["click_power"]
