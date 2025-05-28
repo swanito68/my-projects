@@ -36,7 +36,7 @@ def upgrade_shop():
     while True:
         print("===================== UPGRADE STORE =====================")
         for key, value in upgrade_store.items():
-            print(f"{key:5} -> {value}")
+            print(f"{key:3} -> {value}")
         print("=========================================================")
         print(f"You have {cookies:.2f} cookies")
         choice = input("Choose an upgrade (or press Enter to exit): ").strip()
