@@ -21,13 +21,13 @@ upgrade_store = {
     5: "Cookie Factory (75 cookies per second): $2k",
     6: "+50 Cookies per click: $800",
     7: "+250 Cookies per click: $4k",
-    8: "+33% Cookes per second: $250",
+    8: "+33% Cookies per second: $250",
+    9: "+33% Cookies per click: $500",
+    10: "Cookie Bank (+400 Cookies per click): $6k",
+    11: "x2 Cookies per second: $3.5k",
 }
 
-actual_upgrades = {
-    "click_power": 1.0,  # starts at +1 per click
-    "autoclicks": 0.0,
-}
+actual_upgrades = {"click_power": 1.0, "autoclicks": 0.0}
 
 
 def upgrade_shop():
@@ -36,7 +36,7 @@ def upgrade_shop():
     while True:
         print("================== UPGRADE STORE ==================")
         for key, value in upgrade_store.items():
-            print(f"{key}: {value:10}")
+            print(f"{key:5}: {value}")
         print("===================================================")
         print(f"You have {cookies:.2f} cookies")
         choice = input("Choose an upgrade (or press Enter to exit): ").strip()
@@ -46,38 +46,62 @@ def upgrade_shop():
             clear()
             actual_upgrades["click_power"] += 2
             cookies -= 25
+            print("Successfully bought")
         elif choice == "1" and cookies >= 15:
             clear()
             actual_upgrades["autoclicks"] += 0.5
             cookies -= 15
+            print("Successfully bought")
         elif choice == "2" and cookies >= 50:
             clear()
             actual_upgrades["autoclicks"] += 3
             cookies -= 50
+            print("Successfully bought")
         elif choice == "3" and cookies >= 300:
             clear()
             actual_upgrades["autoclicks"] += 10
             cookies -= 300
+            print("Successfully bought")
         elif choice == "4" and cookies >= 100:
             clear()
             actual_upgrades["click_power"] += 10
             cookies -= 100
+            print("Successfully bought")
         elif choice == "5" and cookies >= 2000:
             clear()
             actual_upgrades["autoclicks"] += 75
             cookies -= 2000
+            print("Successfully bought")
         elif choice == "6" and cookies >= 800:
             clear()
             actual_upgrades["click_power"] += 50
             cookies -= 800
+            print("Successfully bought")
         elif choice == "7" and cookies >= 4000:
             clear()
             actual_upgrades["click_power"] += 250
             cookies -= 4000
+            print("Successfully bought")
         elif choice == "8" and cookies >= 250:
             clear()
             actual_upgrades["autoclicks"] *= 1.33
             cookies -= 250
+            print("Successfully bought")
+        elif choice == "9" and cookies >= 500:
+            clear()
+            actual_upgrades["click_power"] *= 1.33
+            cookies -= 250
+            print("Successfully bought")
+        elif choice == "10" and cookies >= 6000:
+            clear()
+            actual_upgrades["click_power"] += 400
+            cookies -= 6000
+            print("Successfully bought")
+        elif choice == "11" and cookies >= 3500:
+            clear()
+            actual_upgrades["autoclicks"] *= 2
+            cookies -= 3500
+            print("Successfully bought")
         else:
             clear()
             print("Invalid choice")
@@ -111,8 +135,8 @@ def main():
             upgrade_shop()
         elif choice == "2":
             clear()
-            print(f"Click power: {actual_upgrades['click_power']}/click")
-            print(f"Clicks per second: {actual_upgrades['autoclicks']}/s")
+            print(f"Click power: {actual_upgrades['click_power']:.2f}/click")
+            print(f"Clicks per second: {actual_upgrades['autoclicks']:.2f}/s")
         elif choice == "3":
             break
         else:
