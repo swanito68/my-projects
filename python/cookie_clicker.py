@@ -34,10 +34,10 @@ def upgrade_shop():
     global cookies
     clear()
     while True:
-        print("===== UPGRADE STORE =====")
+        print("============== UPGRADE STORE ==============")
         for key, value in upgrade_store.items():
             print(f"{key}: {value:10}")
-        print("=========================")
+        print("===========================================")
         print(f"You have {cookies} cookies")
         choice = input("Choose an upgrade (or press Enter to exit): ").strip()
         if choice == "":
