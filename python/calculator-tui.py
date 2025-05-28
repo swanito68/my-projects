@@ -1,3 +1,4 @@
+# WORK IN PROGRESS!!!!!!!!!!!!!!!!!!!!!!!!!!
 import math
 import os
 
@@ -30,6 +31,7 @@ def multiply(*nums):
     return product
 
 
+## Division
 def R_divide(initial, *nums):
     total = sum(nums)
     if total == 0:
@@ -41,3 +43,12 @@ def S_divide(initial, *nums):
     for num in nums:
         initial /= num
     return initial
+
+
+# Main program
+def main():
+    print("welcome to calculator")
+
+
+if __name__ == "__main__":
+    main()
