@@ -38,7 +38,7 @@ def upgrade_shop():
         for key, value in upgrade_store.items():
             print(f"{key}: {value:10}")
         print("===================================================")
-        print(f"You have {cookies} cookies")
+        print(f"You have {cookies:.2f} cookies")
         choice = input("Choose an upgrade (or press Enter to exit): ").strip()
         if choice == "":
             break
@@ -96,7 +96,7 @@ def main():
     clear()
     while True:
         print("Python cookie clicker")
-        print(f"You have {cookies} cookies")
+        print(f"You have {cookies:.2f} cookies")
         print("Options:")
         print("Enter -> Click cookie")
         print("1     -> Visit shop")
