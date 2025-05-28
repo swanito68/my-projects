@@ -36,6 +36,7 @@ def upgrade_shop():
         for key, value in upgrade_store.items():
             print(f"{key}: {value:10}")
         print("=========================")
+        print(f"You have {cookies} cookies")
         choice = input("Choose an upgrade (or press Enter to exit): ").strip()
         if choice == "":
             break
@@ -84,6 +85,7 @@ def main():
     threading.Thread(target=autogenerate, daemon=True).start()
     while True:
         print("Python cookie clicker")
+        print(f"You have {cookies} cookies")
         print("Options:")
         print("1. Click cookie")
         print("2. Visit shop")
@@ -98,7 +100,6 @@ def main():
             upgrade_shop()
         elif choice == "3":
             clear()
-            print(f"Cookies: {cookies}")
             print(f"Click power: {actual_upgrades['click_power']}/click")
             print(f"Clicks per second: {actual_upgrades['autoclicks']}/s")
         elif choice == "4":
