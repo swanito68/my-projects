@@ -29,8 +29,8 @@ def upgrade_shop():
     global cookies
     clear()
     print("===== UPGRADE STORE =====")
-    for key in upgrade_store.keys():
-        print(key)
+    for value in upgrade_store.values():
+        print(value)
     print("=========================")
     while True:
         choice = input("Choose an upgrade (or press Enter to exit): ").strip()
@@ -88,6 +88,9 @@ def main():
             print(f"Clicks per second: {actual_upgrades['autoclicks']}/s")
         elif choice == "4":
             break
+        else:
+            clear()
+            print("Invalid input")
     print("bai")
 
 
