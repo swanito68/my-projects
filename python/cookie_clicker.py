@@ -87,22 +87,22 @@ def main():
         print("Python cookie clicker")
         print(f"You have {cookies} cookies")
         print("Options:")
-        print("1. Click cookie")
-        print("2. Visit shop")
-        print("3. View cookie data")
-        print("4. Quit")
+        print("Enter -> Click cookie")
+        print("1     -> Visit shop")
+        print("2     -> View cookie data")
+        print("3     -> Quit")
         choice = input("> ").strip()
-        if choice == "1":
+        if not bool(choice):
             clear()
             cookies += actual_upgrades["click_power"]
             print(f"+{actual_upgrades['click_power']} cookie(s)")
-        elif choice == "2":
+        elif choice == "1":
             upgrade_shop()
-        elif choice == "3":
+        elif choice == "2":
             clear()
             print(f"Click power: {actual_upgrades['click_power']}/click")
             print(f"Clicks per second: {actual_upgrades['autoclicks']}/s")
-        elif choice == "4":
+        elif choice == "3":
             break
         else:
             clear()
