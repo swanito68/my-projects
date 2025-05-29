@@ -1,6 +1,7 @@
 # WORK IN PROGRESS!!!!!!!!!!!!!!!!!!!!!!!!!!
-import math
+# planning to add geometry calc soon
 import os
+from typing import ValuesView
 
 
 # Clear console
@@ -17,37 +18,145 @@ def add(*nums):
 
 
 def subtract(initial, *nums):
-    total = 0
     for num in nums:
-        total += num
-    initial -= total
+        initial -= num
     return initial
 
 
 def multiply(*nums):
-    product = 0
+    product = 1
     for num in nums:
         product *= num
     return product
 
 
-## Division
-def R_divide(initial, *nums):
-    total = sum(nums)
-    if total == 0:
-        raise ValueError("Cannot divide by 0")
-    return initial / total
-
-
-def S_divide(initial, *nums):
+def divide(initial, *nums):
     for num in nums:
+        if num == 0:
+            raise ValueError("You can't divide by 0 you dumbo jumbo")
         initial /= num
     return initial
 
 
 # Main program
 def main():
-    print("welcome to calculator")
+    clear()
+    print("Welcome to the arithmetic calculator I made")
+    while True:
+        print("1 -> Addition")
+        print("2 -> Subtraction")
+        print("3 -> Multiplication")
+        print("4 -> Division")
+        choice = input("==> ").strip()
+        if choice == "1":
+            clear()
+            print("Addition")
+            while True:
+                try:
+                    count = int(input("Choose the amount of numbers (min: 2) "))
+                    if count < 2:
+                        print("Number of numbers must be above 2")
+                        continue
+
+                    numbers = []
+                    for i in range(count):
+                        while True:
+                            try:
+                                num = float(input(f"Number {i + 1}:"))
+                                numbers.append(num)
+                                break
+                            except ValueError:
+                                print("Input must be an int/float")
+
+                    clear()
+                    result = add(*numbers)
+                    print(f"Result: {result:.2f}")
+                    break
+                except ValueError:
+                    print("Input must be a number!!")
+        elif choice == "2":
+            clear()
+            print("Substraction")
+            while True:
+                try:
+                    count = int(input("Choose the amount of numbers: (min. 2) "))
+                    if count < 2:
+                        print("Numbers must be above 2")
+                        continue
+
+                    numbers = []
+                    for i in range(count):
+                        while True:
+                            try:
+                                num = float(input(f"Number {i + 1}: "))
+                                numbers.append(num)
+                                break
+                            except ValueError:
+                                print("Input must be an int/float")
+
+                    clear()
+                    result = subtract(*numbers)
+                    print(f"Result: {result:.2f}")
+                except ValueError:
+                    print("Input must be a number!!")
+        elif choice == "3":
+            clear()
+            print("Multiplication")
+            while True:
+                try:
+                    count = int(input("Choose the amount of numbers: (min. 2) "))
+                    if count < 2:
+                        print("Numbers must be above 2")
+                        continue
+
+                    numbers = []
+                    for i in range(count):
+                        while True:
+                            try:
+                                num = float(input(f"Number {i + 1}: "))
+                                numbers.append(num)
+                                break
+                            except ValueError:
+                                print("Input must be an int/float")
+
+                    clear()
+                    result = multiply(*numbers)
+                    print(f"Result: {result:.2f}")
+                except ValueError:
+                    print("Input must be a number!!")
+        elif choice == "4":
+            clear()
+            print("Division")
+            while True:
+                try:
+                    count = int(input("Choose the amount of numbers: (min. 2) "))
+                    if count < 2:
+                        print("Numbers must be above 2")
+                        continue
+
+                    numbers = []
+                    for i in range(count):
+                        while True:
+                            try:
+                                num = float(input(f"Number {i + 1}: "))
+                                numbers.append(num)
+                                break
+                            except ValueError:
+                                print("Input must be an int/float")
+
+                    clear()
+                    try:
+                        result = divide(*numbers)
+                    except ValueError as ve:
+                        print(f"Error: {ve}")
+                        continue
+
+                    print(f"Result: {result:.2f}")
+                except ValueError:
+                    print("Input must be a number!!")
+        else:
+            print("Invalid option")
+            continue
 
 
 if __name__ == "__main__":
