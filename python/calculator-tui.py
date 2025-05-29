@@ -47,8 +47,11 @@ def main():
         print("2 -> Subtraction")
         print("3 -> Multiplication")
         print("4 -> Division")
+        print("5 -> Exit")
         choice = input("==> ").strip()
-        if choice == "1":
+        if choice == "5":
+            break
+        elif choice == "1":
             clear()
             print("Addition")
             while True:
@@ -62,7 +65,7 @@ def main():
                     for i in range(count):
                         while True:
                             try:
-                                num = float(input(f"Number {i + 1}:"))
+                                num = float(input(f"Number {i + 1} => "))
                                 numbers.append(num)
                                 break
                             except ValueError:
@@ -76,7 +79,7 @@ def main():
                     print("Input must be a number!!")
         elif choice == "2":
             clear()
-            print("Substraction")
+            print("Subtraction")
             while True:
                 try:
                     count = int(input("Choose the amount of numbers: (min. 2) "))
@@ -88,7 +91,7 @@ def main():
                     for i in range(count):
                         while True:
                             try:
-                                num = float(input(f"Number {i + 1}: "))
+                                num = float(input(f"Number {i + 1} => "))
                                 numbers.append(num)
                                 break
                             except ValueError:
@@ -113,7 +116,7 @@ def main():
                     for i in range(count):
                         while True:
                             try:
-                                num = float(input(f"Number {i + 1}: "))
+                                num = float(input(f"Number {i + 1} => "))
                                 numbers.append(num)
                                 break
                             except ValueError:
@@ -138,7 +141,7 @@ def main():
                     for i in range(count):
                         while True:
                             try:
-                                num = float(input(f"Number {i + 1}: "))
+                                num = float(input(f"Number {i + 1} => "))
                                 numbers.append(num)
                                 break
                             except ValueError:
@@ -147,16 +150,17 @@ def main():
                     clear()
                     try:
                         result = divide(*numbers)
+                        print(f"Result: {result:.2f}")
+                        break
                     except ValueError as ve:
                         print(f"Error: {ve}")
                         continue
-
-                    print(f"Result: {result:.2f}")
                 except ValueError:
                     print("Input must be a number!!")
         else:
             print("Invalid option")
             continue
+    print("bai")
 
 
 if __name__ == "__main__":
