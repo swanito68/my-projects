@@ -5,7 +5,6 @@ import random
 symbols = ["7"] * 1 + ["🍒"] * 3 + ["🔔"] * 2 + ["🍋"] * 4 + ["🍉"] * 2
 money = random.randint(20, 500)
 
-
 def shuffle():
     global money
     os.system("cls" if os.name == "nt" else "clear")
