@@ -1,0 +1,3 @@
+this is for reading, writing and detecting files with python
+
+i really like spongebob
